@@ -1,66 +1,57 @@
-import React, { memo } from 'react';
-import { TouchableOpacity, Image, Text, StyleSheet, Dimensions } from 'react-native';
+import React from 'react';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import type { Product } from '../lib/types';
 
-const { width } = Dimensions.get('window');
-const CARD_WIDTH = width * 0.6;
-
 interface ProductCardProps {
   product: Product;
-  onPress?: () => void;
+  onPress: () => void;
 }
 
-const formatPrice = (price: number): string => {
-  return `R$ ${price.toFixed(2).replace('.', ',')}`;
-};
-
-export const ProductCard = memo(({ product, onPress }: ProductCardProps) => {
+export function ProductCard({ product, onPress }: ProductCardProps) {
   return (
-    <TouchableOpacity style={styles.productCard} onPress={onPress}>
-      <Image 
-        source={{ uri: product.image_url || 'https://via.placeholder.com/300x400' }} 
-        style={styles.productImage} 
-      />
+    <TouchableOpacity onPress={onPress}>
       <LinearGradient
-        colors={['transparent', 'rgba(0,0,0,0.8)']}
-        style={styles.productInfo}
+        colors={['rgba(255, 255, 255, 0.05)', 'rgba(255, 255, 255, 0.02)']}
+        style={styles.container}
       >
-        <Text style={styles.productName}>{product.name}</Text>
-        <Text style={styles.productPrice}>{formatPrice(product.price)}</Text>
+        <Image 
+          source={{ 
+            uri: product.image_url || 'https://via.placeholder.com/300x400'
+          }} 
+          style={styles.image} 
+        />
+        <View style={styles.info}>
+          <Text style={styles.name}>{product.name}</Text>
+          <Text style={styles.price}>R$ {product.price.toFixed(2)}</Text>
+        </View>
       </LinearGradient>
     </TouchableOpacity>
   );
-});
+}
 
 const styles = StyleSheet.create({
-  productCard: {
-    width: CARD_WIDTH,
-    height: 250,
+  container: {
+    width: 180,
     marginRight: 15,
     borderRadius: 12,
     overflow: 'hidden',
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
   },
-  productImage: {
+  image: {
     width: '100%',
-    height: '100%',
+    height: 200,
     resizeMode: 'cover',
   },
-  productInfo: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
+  info: {
     padding: 12,
   },
-  productName: {
+  name: {
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 4,
   },
-  productPrice: {
+  price: {
     color: '#8A2BE2',
     fontSize: 14,
     fontWeight: 'bold',

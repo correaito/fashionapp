@@ -17,9 +17,11 @@ import { supabase } from '../lib/supabase';
 import { DrawerNavigationProp } from '@react-navigation/drawer';
 import { ProductCard } from '../components/ProductCard';
 import type { RootDrawerParamList, Product } from '../lib/types';
+import { useCart } from '../lib/CartContext';
+import { useNavigation } from '@react-navigation/native';
 
 type HomeScreenProps = {
-  navigation: DrawerNavigationProp<RootDrawerParamList, 'Home'>;
+  navigation: DrawerNavigationProp<RootDrawerParamList, 'HomeScreen'>;
 };
 
 const categories = [
@@ -33,6 +35,7 @@ export function HomeScreen({ navigation }: HomeScreenProps) {
   const [products, setProducts] = useState<Product[]>([]);
   const [searchText, setSearchText] = useState('');
   const [loading, setLoading] = useState(true);
+  const { state } = useCart();
 
   const fetchProducts = useCallback(async () => {
     try {
@@ -77,9 +80,8 @@ export function HomeScreen({ navigation }: HomeScreenProps) {
   }, []);
 
   const handleProductPress = useCallback((product: Product) => {
-    // TODO: Implementar visualização detalhada do produto
-    console.log('Produto selecionado:', product);
-  }, []);
+    (navigation as any).navigate('ProductDetails', { product });
+  }, [navigation]);
 
   return (
     <>
@@ -99,11 +101,16 @@ export function HomeScreen({ navigation }: HomeScreenProps) {
               <Text style={styles.welcomeText}>Bem-vindo à</Text>
               <Text style={styles.storeName}>FASHION STORE</Text>
             </View>
-            <TouchableOpacity style={styles.cartButton}>
+            <TouchableOpacity 
+              style={styles.cartButton}
+              onPress={() => (navigation as any).navigate('Cart')}
+            >
               <FontAwesome5 name="shopping-cart" size={24} color="#8A2BE2" />
-              <View style={styles.cartBadge}>
-                <Text style={styles.cartBadgeText}>0</Text>
-              </View>
+              {state.items.length > 0 && (
+                <View style={styles.cartBadge}>
+                  <Text style={styles.cartBadgeText}>{state.items.length}</Text>
+                </View>
+              )}
             </TouchableOpacity>
           </View>
 

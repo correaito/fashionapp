@@ -1,13 +1,13 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { FontAwesome5 } from '@expo/vector-icons';
-import type { DrawerContentComponentProps } from '@react-navigation/drawer';
+import React from "react";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
+import { FontAwesome5 } from "@expo/vector-icons";
+import type { DrawerContentComponentProps } from "@react-navigation/drawer";
 
 export function CustomDrawerContent(props: DrawerContentComponentProps) {
   return (
     <LinearGradient
-      colors={['#1a1a1a', '#2d1f3f']}
+      colors={["#1a1a1a", "#2d1f3f"]}
       style={styles.drawerContainer}
     >
       <View style={styles.drawerHeader}>
@@ -15,25 +15,25 @@ export function CustomDrawerContent(props: DrawerContentComponentProps) {
         <Text style={styles.drawerTitle}>FASHION STORE</Text>
       </View>
       <View style={styles.drawerContent}>
-        <TouchableOpacity 
-          style={styles.drawerItem} 
-          onPress={() => props.navigation.navigate('Home')}
+        <TouchableOpacity
+          style={styles.drawerItem}
+          onPress={() => props.navigation.navigate("HomeScreen")}
         >
           <FontAwesome5 name="home" size={20} color="#8A2BE2" />
           <Text style={styles.drawerItemText}>Home</Text>
         </TouchableOpacity>
-        
-        <TouchableOpacity 
-          style={styles.drawerItem} 
-          onPress={() => props.navigation.navigate('ProductRegistration')}
+
+        <TouchableOpacity
+          style={styles.drawerItem}
+          onPress={() => props.navigation.navigate("Dashboard")}
         >
-          <FontAwesome5 name="plus-circle" size={20} color="#8A2BE2" />
-          <Text style={styles.drawerItemText}>Cadastrar Produto</Text>
+          <FontAwesome5 name="tachometer-alt" size={20} color="#8A2BE2" />
+          <Text style={styles.drawerItemText}>Dashboard</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity 
-          style={styles.drawerItem} 
-          onPress={() => props.navigation.navigate('Login')}
+        <TouchableOpacity
+          style={styles.drawerItem}
+          onPress={() => props.navigation.navigate("Login")}
         >
           <FontAwesome5 name="sign-out-alt" size={20} color="#8A2BE2" />
           <Text style={styles.drawerItemText}>Sair</Text>
@@ -50,14 +50,14 @@ const styles = StyleSheet.create({
   drawerHeader: {
     padding: 20,
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(138, 43, 226, 0.3)',
-    alignItems: 'center',
+    borderBottomColor: "rgba(138, 43, 226, 0.3)",
+    alignItems: "center",
     marginTop: 30,
   },
   drawerTitle: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginTop: 10,
     letterSpacing: 1,
   },
@@ -66,16 +66,16 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   drawerItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     padding: 15,
     borderRadius: 12,
     marginBottom: 10,
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    backgroundColor: "rgba(255, 255, 255, 0.05)",
   },
   drawerItemText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 16,
     marginLeft: 15,
   },
-}); 
+});

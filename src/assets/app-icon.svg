@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fundo gradiente -->
+  <rect width="1024" height="1024" rx="256" fill="url(#paint0_linear)"/>
+  
+  <!-- Sacola de compras -->
+  <path d="M312 392C312 283.635 400.635 195 509 195C617.365 195 706 283.635 706 392V452H312V392Z" fill="white" fill-opacity="0.9"/>
+  <path d="M262 422C262 407.088 274.088 395 289 395H729C743.912 395 756 407.088 756 422V762C756 776.912 743.912 789 729 789H289C274.088 789 262 776.912 262 762V422Z" fill="white"/>
+  
+  <!-- Letra F estilizada -->
+  <path d="M409 502H609M409 502V702M409 502V602H559" stroke="#8A2BE2" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Definição do gradiente -->
+  <defs>
+    <linearGradient id="paint0_linear" x1="0" y1="0" x2="1024" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8A2BE2"/>
+      <stop offset="100%" stop-color="#9400D3"/>
+    </linearGradient>
+  </defs>
+</svg> 
