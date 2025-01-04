@@ -30,35 +30,55 @@ Fashion Store é um aplicativo móvel moderno desenvolvido com React Native e Ex
 
 ## 📋 Pré-requisitos
 
-Antes de começar, certifique-se de ter os seguintes itens instalados:
-
-- [Node.js](https://nodejs.org/)
+- Node.js
 - npm ou yarn
-- [Expo CLI](https://docs.expo.dev/get-started/installation/)
+- Expo CLI
 - Um dispositivo móvel ou emulador
+- Conta no Supabase
 
-## 🛠️ Instalação
+## 🛠️ Instalação e Configuração
 
 1. Clone o repositório:
+
    ```bash
-   git clone [URL_DO_SEU_REPOSITORIO]
+   git clone https://github.com/correaito/fashionapp.git
+   cd fashionapp
    ```
 
 2. Instale as dependências:
+
    ```bash
    npm install
    # ou
    yarn install
    ```
 
-3. Configure as variáveis de ambiente:
+3. Configuração do Supabase:
 
-   - Crie um arquivo `.env` na raiz do projeto.
-   - Adicione suas credenciais do Supabase:
-     ```env
-     SUPABASE_URL=sua_url_do_supabase
-     SUPABASE_ANON_KEY=sua_chave_anon_do_supabase
-     ```
+   a. Crie uma conta no [Supabase](https://supabase.com) se ainda não tiver
+
+   b. Crie um novo projeto no Supabase
+
+   c. Após criar o projeto, vá em Project Settings > API
+
+   d. Crie um arquivo \`.env\` na raiz do projeto com as seguintes variáveis:
+
+   ```env
+   SUPABASE_URL=sua_url_do_projeto
+   SUPABASE_ANON_KEY=sua_chave_anon
+   ```
+
+   e. Substitua:
+
+   - \`sua_url_do_projeto\` pela URL do seu projeto (Project URL)
+   - \`sua_chave_anon\` pela chave anônima (anon public)
+
+   f. Alternativamente, você pode configurar diretamente no arquivo \`src/lib/supabase.ts\`:
+
+   ```typescript
+   const supabaseUrl = "sua_url_do_projeto";
+   const supabaseAnonKey = "sua_chave_anon";
+   ```
 
 4. Inicie o projeto:
    ```bash
@@ -94,22 +114,22 @@ Adicione capturas de tela do aplicativo para ilustrar suas funcionalidades e apa
 
 ## 🤝 Contribuindo
 
-Contribuições são sempre bem-vindas! Para contribuir:
+Contribuições são sempre bem-vindas! Sinta-se à vontade para:
 
-1. Faça um fork do projeto.
-2. Crie uma branch para sua feature:
+1. Fazer um fork do projeto.
+2. Criar uma branch para sua feature:
    ```bash
-   git checkout -b feature/SuaFeature
+   git checkout -b feature/AmazingFeature
    ```
-3. Faça o commit de suas alterações:
+3. Commit suas mudanças:
    ```bash
-   git commit -m 'Add SuaFeature'
+   git commit -m 'Add some AmazingFeature'
    ```
-4. Envie para a branch:
+4. Push para a branch:
    ```bash
-   git push origin feature/SuaFeature
+   git push origin feature/AmazingFeature
    ```
-5. Abra um Pull Request.
+5. Abrir um Pull Request.
 
 ## 📄 Licença
 
