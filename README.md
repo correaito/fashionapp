@@ -1,7 +1,7 @@
- # 🛍️ Fashion Store App
+# 🛍️ Fashion Store App
 
 <div align="center">
-  <img src="assets/app-icon.png" alt="Fashion Store Logo" width="200"/>
+  <img src="assets/app-icon.png" alt="Fashion Store Logo" width="100"/>
 </div>
 
 ## 📱 Sobre o Projeto
@@ -57,28 +57,40 @@ Fashion Store é um aplicativo móvel moderno desenvolvido com React Native e Ex
 
    a. Crie uma conta no [Supabase](https://supabase.com) se ainda não tiver
 
-   b. Crie um novo projeto no Supabase
+   b. Crie um novo projeto no Supabase:
 
-   c. Após criar o projeto, vá em Project Settings > API
+   - Vá para o [Dashboard do Supabase](https://app.supabase.com)
+   - Clique em "New Project"
+   - Preencha as informações do projeto
+   - Aguarde a criação do projeto
 
-   d. Crie um arquivo \`.env\` na raiz do projeto com as seguintes variáveis:
+   c. Obtenha as credenciais do projeto:
+
+   - No menu lateral, vá em "Project Settings"
+   - Clique em "API"
+   - Você encontrará:
+     - Project URL (anote-a)
+     - anon public key (anote-a)
+
+   d. Configure as variáveis de ambiente:
+
+   - Na raiz do projeto, crie um arquivo chamado `.env`
+   - Adicione as seguintes variáveis:
 
    ```env
-   SUPABASE_URL=sua_url_do_projeto
-   SUPABASE_ANON_KEY=sua_chave_anon
+   SUPABASE_URL=sua_project_url
+   SUPABASE_ANON_KEY=sua_anon_public_key
    ```
 
-   e. Substitua:
+   - Substitua:
+     - `sua_project_url` pela URL do projeto que você anotou
+     - `sua_anon_public_key` pela chave anônima que você anotou
 
-   - \`sua_url_do_projeto\` pela URL do seu projeto (Project URL)
-   - \`sua_chave_anon\` pela chave anônima (anon public)
-
-   f. Alternativamente, você pode configurar diretamente no arquivo \`src/lib/supabase.ts\`:
-
-   ```typescript
-   const supabaseUrl = "sua_url_do_projeto";
-   const supabaseAnonKey = "sua_chave_anon";
-   ```
+   > ⚠️ **IMPORTANTE**:
+   >
+   > - Nunca compartilhe ou comite o arquivo `.env`
+   > - O arquivo `.env` está no `.gitignore` para sua segurança
+   > - Cada desenvolvedor precisa criar seu próprio arquivo `.env`
 
 4. Inicie o projeto:
    ```bash
@@ -89,9 +101,9 @@ Fashion Store é um aplicativo móvel moderno desenvolvido com React Native e Ex
 
 ## 📱 Uso
 
-1. Abra o aplicativo Expo Go no seu dispositivo móvel.
-2. Escaneie o QR Code gerado no terminal.
-3. Ou execute em um emulador Android/iOS.
+1. Abra o aplicativo Expo Go no seu dispositivo móvel
+2. Escaneie o QR Code gerado no terminal
+3. Ou execute em um emulador Android/iOS
 
 ## 🎯 Funcionalidades Principais
 
@@ -110,26 +122,17 @@ Fashion Store é um aplicativo móvel moderno desenvolvido com React Native e Ex
 
 ## 📸 Screenshots
 
-Adicione capturas de tela do aplicativo para ilustrar suas funcionalidades e aparência.
+[Adicione screenshots do seu aplicativo aqui]
 
 ## 🤝 Contribuindo
 
 Contribuições são sempre bem-vindas! Sinta-se à vontade para:
 
-1. Fazer um fork do projeto.
-2. Criar uma branch para sua feature:
-   ```bash
-   git checkout -b feature/AmazingFeature
-   ```
-3. Commit suas mudanças:
-   ```bash
-   git commit -m 'Add some AmazingFeature'
-   ```
-4. Push para a branch:
-   ```bash
-   git push origin feature/AmazingFeature
-   ```
-5. Abrir um Pull Request.
+1. Fazer um fork do projeto
+2. Criar uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abrir um Pull Request
 
 ## 📄 Licença
 
